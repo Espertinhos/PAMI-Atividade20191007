@@ -11,7 +11,7 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.PopupMenu;
 
-public class MainActivity extends AppCompatActivity implements CustomDialog.ItemListener, AdapterView.OnItemClickListener, Popup.OnMenuItemClickListener {
+public class MainActivity extends AppCompatActivity implements CustomDialog.ItemListener, AdapterView.OnItemClickListener, PopupMenu.OnMenuItemClickListener {
 
     private boolean insertMode;
     private ItemAdapter adapter;
@@ -20,7 +20,11 @@ public class MainActivity extends AppCompatActivity implements CustomDialog.Item
     private String selectedItemName;
     private int selectedItem;
 
-
+    @Override
+    public boolean onMenuItemClick(MenuItem menuItem) {
+        adapter.removeItem(selectedItem);
+        return false;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +38,8 @@ public class MainActivity extends AppCompatActivity implements CustomDialog.Item
         listView.setOnItemClickListener(this);
 
     }
+
+
 
     @Override
     public void onItem(String name) {
