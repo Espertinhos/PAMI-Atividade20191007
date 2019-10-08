@@ -11,7 +11,7 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.PopupMenu;
 
-public class MainActivity extends AppCompatActivity implements CustomDialog.ItemListener, AdapterView.OnItemClickListener {
+public class MainActivity extends AppCompatActivity implements CustomDialog.ItemListener, AdapterView.OnItemClickListener, Popup.OnMenuItemClickListener {
 
     private boolean insertMode;
     private ItemAdapter adapter;
@@ -49,6 +49,7 @@ public class MainActivity extends AppCompatActivity implements CustomDialog.Item
         PopupMenu popup = new PopupMenu(this, view);
         popup.inflate(R.menu.popup);
         popup.show();
+
     }
 
     @Override
