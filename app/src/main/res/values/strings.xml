@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">ETEC-20191007</string>
     <string name="CustomDialog">CustomDialog</string>
+    <string name="Editar">editar</string>
+    <string name="Excluir">excluir</string>
+    <string name="excluir">Excluir</string>
+    <string name="editar">Editar</string>
 </resources>
