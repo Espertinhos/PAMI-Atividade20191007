@@ -8,6 +8,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 
@@ -64,4 +65,6 @@ public class CustomDialog extends DialogFragment implements DialogInterface.OnCl
 	public interface ItemListener {
 		void onItem(String name);
 	}
+
+
 }
