@@ -22,8 +22,21 @@ public class MainActivity extends AppCompatActivity implements CustomDialog.Item
 
     @Override
     public boolean onMenuItemClick(MenuItem menuItem) {
-        adapter.removeItem(selectedItem);
-        return false;
+
+        if (menuItem.getItemId() == R.id.btnExcluir){
+            adapter.removeItem(selectedItem);
+            insertMode = false;
+            return true;
+        }
+        else if(menuItem.getItemId() == R.id.btnEditar)
+        {
+            CustomDialog dialog = new CustomDialog(this);
+            dialog.show(getFragmentManager(), "action Editar");
+
+            insertMode = false;
+            return true;
+        }
+            return true;
     }
 
     @Override
@@ -54,8 +67,10 @@ public class MainActivity extends AppCompatActivity implements CustomDialog.Item
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
         PopupMenu popup = new PopupMenu(this, view);
         popup.inflate(R.menu.popup);
+        popup.setOnMenuItemClickListener(this);
         popup.show();
 
+        selectedItem = i;
     }
 
     @Override
@@ -67,16 +82,15 @@ public class MainActivity extends AppCompatActivity implements CustomDialog.Item
     @Override
     public boolean onOptionsItemSelected(MenuItem item)
     {
-        switch(item.getItemId())
-        {
 
-            case R.id.btnMais:
+        if (item.getItemId() == R.id.btnMais)
+        {
                 CustomDialog dialog = new CustomDialog(this);
                 dialog.show(getFragmentManager(), "CustomDialog");
                 insertMode = true;
 
-            default:
-                return super.onOptionsItemSelected(item);
         }
+        return super.onOptionsItemSelected(item);
     }
 }
+
